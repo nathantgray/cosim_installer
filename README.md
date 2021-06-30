@@ -2,8 +2,12 @@
 Installer scripts for installing HELICS with GLD, NS3, and Python on a fresh Ubuntu installation.
 
 # WARNING: Carefully examine before using for yourself!
+
+These scripts have not been properly tested. 
+
+The NS-3 and NetAnim installation blocks of cosim_install.sh were added after the fact and have not been tested.
 cosim_install.sh was written to be run on the root of a fresh installation of Ubuntu-20.04 on WSL2. It may work on more cases but has not been tested.
-These scripts have not been tested properly. 
+
 
 cosim_install.sh was written to be run as root user. It also assumes there is a user called "cosim" for the ns3 installation. You may wish to change this.
 
