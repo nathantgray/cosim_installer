@@ -11,7 +11,7 @@ cosim_install.sh was written to be run on the root of a fresh installation of Ub
 
 cosim_install.sh was written to be run as root user. It also assumes there is a user called "cosim" for the ns3 installation. You may wish to change this.
 
-After installation I have added the following to .bashrc of the user:
+# After installation I have added the following to .bashrc of the user:
 
 ```
 export HELICS_BRANCH=v2.7.0
