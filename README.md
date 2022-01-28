@@ -7,6 +7,7 @@ You may add the activate script to the cosim2_env folder when finished and use i
 Before running the installer you should install the prerequisites with the following:
 ```
 sudo apt-get update
+sudo apt-get upgrade
 sudo apt-get install -y \
   autoconf \
   automake \
