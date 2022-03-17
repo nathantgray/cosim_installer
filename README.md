@@ -47,5 +47,5 @@ sudo apt-get install -y \
   If /usr/include/python3.9 or /usr/lib/x86_64-linux-gnu/libpython3.9.so do not exist the installation will fail.
   
   3. Do you want ns-3 to also be installed? If you don't need it, remove it from the script. It is the last step after the GridLAB-D install. When I timed the ns-3 installation on a VM it took 20 minutes.
-  4. It is helpful to record what you do exactly when doing the installation incase things don't go smoothly. If you do have to make changes for your system or improvements to the script that could help others please consider contributing to this repository.
+  4. It is helpful to record what you do exactly when doing the installation in case things don't go smoothly. If you do have to make changes for your system or improvements to the script that could help others please consider contributing to this repository.
  
