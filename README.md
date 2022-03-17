@@ -23,12 +23,12 @@ sudo apt-get install -y \
   libboost-program-options-dev \
   libboost-test-dev \
   libtool \
-  libzmq5-dev \
+  libzmq3-dev \
   make \
   python3.9 \
   python3.9-dev \
   python3-pyqt5 \
   swig \
   mercurial \
-  qt5-default
+  python3.9-distutils
   ```
