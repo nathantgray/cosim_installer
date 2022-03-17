@@ -57,7 +57,9 @@ you have a problem.
 
 ## After installation
 1. Copy these files (activate, and cosim2_installer.sh) into the new folder, 'cosim2_env', that was created.
-2. In terminal, run `source ~/cosim2_env/activate` to make the programs available in your terminal session.
-3. Test if it is working by running `gridlabd --version` and `helics_broker --version`. If they are installed it will tell you the version of each.
+2. In terminal, run `source ~/cosim2_env/activate` to activate the environment. This will make the programs available in your terminal session.
+  a) If you don't want to do this every time, add the command at the end of your .bashrc file. You can open it easily with `nano ~/.bashrc`.
+  b) If you ever want to deactivate the environment use `deactivate_cosim`.
+4. Test if HELICS and GridLAB-D were installed and the environment is working with `gridlabd --version` and `helics_broker --version`. If they are installed it will tell you the version of each.
 
  
