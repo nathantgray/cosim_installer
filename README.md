@@ -7,7 +7,7 @@ The script will make the directory "~/cosim2_env" and all downloads and installs
 You may add the activate script to the cosim2_env folder when finished and use it to activate the environment.
 
 This script takes a long time to run so it helps to get it right the first time. The whole installation took me about 35 minutes on a virtual machine. About 10 minutes of the installation was to install HELICS, 5 for Xerces and GridLAB-D, and 20 for ns-3.
-Before running the installer you should do several things: 
+## Before running the installer you should do several things: 
 1. install the prerequisites with the following:
 ```
 sudo apt-get update
@@ -46,6 +46,18 @@ sudo apt-get install -y \
   
   If /usr/include/python3.9 or /usr/lib/x86_64-linux-gnu/libpython3.9.so do not exist the installation will fail.
   
-  3. Do you want ns-3 to also be installed? If you don't need it, remove it from the script. It is the last step after the GridLAB-D install. When I timed the ns-3 installation on a VM it took 20 minutes.
+  3. If you don't need ns-3 to be installed, remove it from the script. It is the last step after the GridLAB-D install. When I timed the ns-3 installation on a VM it took 20 minutes.
   4. It is helpful to record what you do exactly when doing the installation in case things don't go smoothly. If you do have to make changes for your system or improvements to the script that could help others please consider contributing to this repository.
+
+## During Installation
+When the GridLAB-D is finished building it will display if HELICS and other things were linked correctly. They will all say no except HELICS and Xerces will say YES. 
+If you see:
+`HELICS:..........NO`
+you have a problem.
+
+## After installation
+1. Copy these files (activate, and cosim2_installer.sh) into the new folder, 'cosim2_env', that was created.
+2. In terminal, run `source ~/cosim2_env/activate` to make the programs available in your terminal session.
+3. Test if it is working by running `gridlabd --version` and `helics_broker --version`. If they are installed it will tell you the version of each.
+
  
