@@ -51,9 +51,7 @@ sudo apt-get install -y \
 
 ## During Installation
 When the GridLAB-D is finished building it will display if HELICS and other things were linked correctly. They will all say no except HELICS and Xerces will say YES. 
-If you see:
-`HELICS:..........NO`
-you have a problem.
+If you see `HELICS:..........NO`, then you have a problem.
 
 ## After installation
 1. Copy these files (activate, and cosim2_installer.sh) into the new folder, 'cosim2_env', that was created.
