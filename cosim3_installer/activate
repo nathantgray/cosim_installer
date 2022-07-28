@@ -1,0 +1,113 @@
+# This file must be used with "source ~/cosim3_env/activate" *from bash*
+# you cannot run it directly
+
+deactivate_cosim () {
+    # reset old environment variables
+    if [ -n "${OLD_VIRTUAL_PATH:-}" ] ; then
+        PATH="${OLD_VIRTUAL_PATH:-}"
+        export PATH
+        unset OLD_VIRTUAL_PATH
+    fi
+    if [ -n "${OLD_PYTHONPATH:-}" ] ; then
+        PYTHONPATH="${OLD_PYTHONPATH:-}"
+        export PYTHONPATH
+        unset OLD_PYTHONPATH
+    fi
+    if [ -n "${OLD_CXXFLAGS:-}" ] ; then
+        CXXFLAGS="${OLD_CXXFLAGS:-}"
+        export CXXFLAGS
+        unset OLD_CXXFLAGS
+    fi
+    if [ -n "${OLD_GLPATH:-}" ] ; then
+        GLPATH="${OLD_GLPATH:-}"
+        export GLPATH
+        unset OLD_GLPATH
+    fi
+    if [ -n "${OLD_LD_LIBRARY_PATH:-}" ] ; then
+        LD_LIBRARY_PATH="${OLD_LD_LIBRARY_PATH:-}"
+        export LD_LIBRARY_PATH
+        unset OLD_LD_LIBRARY_PATH
+    fi
+    if [ -n "${OLD_PYHELICS_INSTALL:-}" ] ; then
+        PYHELICS_INSTALL="${OLD_PYHELICS_INSTALL:-}"
+        export PYHELICS_INSTALL
+        unset OLD_PYHELICS_INSTALL
+    fi
+    if [ -n "${OLD_VIRTUAL_PYTHONHOME:-}" ] ; then
+        PYTHONHOME="${OLD_VIRTUAL_PYTHONHOME:-}"
+        export PYTHONHOME
+        unset OLD_VIRTUAL_PYTHONHOME
+    fi
+
+    # This should detect bash and zsh, which have a hash command that must
+    # be called to get it to forget past commands.  Without forgetting
+    # past commands the $PATH changes we made may not be respected
+    if [ -n "${BASH:-}" -o -n "${ZSH_VERSION:-}" ] ; then
+        hash -r 2> /dev/null
+    fi
+
+    if [ -n "${OLD_VIRTUAL_PS1:-}" ] ; then
+        PS1="${OLD_VIRTUAL_PS1:-}"
+        export PS1
+        unset OLD_VIRTUAL_PS1
+    fi
+
+    unset VIRTUAL_ENV
+    unset GLPATH
+    if [ ! "${1:-}" = "nondestructive" ] ; then
+    # Self destruct!
+        unset -f deactivate_cosim
+    fi
+}
+
+# unset irrelevant variables
+deactivate_cosim nondestructive
+
+VIRTUAL_ENV="${HOME}/cosim3_env"
+export VIRTUAL_ENV
+
+OLD_PYTHONPATH="$PYTHONPATH"
+PYTHONPATH="$VIRTUAL_ENV/python"
+export PYTHONPATH
+
+# GridLAB-D required environment variables:
+OLD_CXXFLAGS="$CXXFLAGS"
+CXXFLAGS=-I${GLD_INSTALL_PATH}/share/gridlabd
+export CXXFLAGS
+
+OLD_GLPATH="$GLPATH"
+GLPATH=${VIRTUAL_ENV}/lib/gridlabd:${VIRTUAL_ENV}/share/gridlabd
+export GLPATH
+
+OLD_LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
+LD_LIBRARY_PATH=${VIRTUAL_ENV}/lib:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH
+
+OLD_VIRTUAL_PATH="$PATH"
+PATH="$VIRTUAL_ENV/bin:$PATH"
+export PATH
+
+OLD_PYHELICS_INSTALL="$PYHELICS_INSTALL"
+PYHELICS_INSTALL=~/cosim3_env
+export PYHELICS_INSTALL
+
+# unset PYTHONHOME if set
+# this will fail if PYTHONHOME is set to the empty string (which is bad anyway)
+# could use `if (set -u; : $PYTHONHOME) ;` in bash
+if [ -n "${PYTHONHOME:-}" ] ; then
+    OLD_VIRTUAL_PYTHONHOME="${PYTHONHOME:-}"
+    unset PYTHONHOME
+fi
+
+if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then
+    OLD_VIRTUAL_PS1="${PS1:-}"
+    PS1="⚡ ${PS1:-}"
+    export PS1
+fi
+
+# This should detect bash and zsh, which have a hash command that must
+# be called to get it to forget past commands.  Without forgetting
+# past commands the $PATH changes we made may not be respected
+if [ -n "${BASH:-}" -o -n "${ZSH_VERSION:-}" ] ; then
+    hash -r 2> /dev/null
+fi
