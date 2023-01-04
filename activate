@@ -28,6 +28,11 @@ deactivate_cosim () {
         export LD_LIBRARY_PATH
         unset OLD_LD_LIBRARY_PATH
     fi
+    if [ -n "${OLD_PYHELICS_INSTALL:-}" ] ; then
+        PYHELICS_INSTALL="${OLD_PYHELICS_INSTALL:-}"
+        export PYHELICS_INSTALL
+        unset OLD_PYHELICS_INSTALL
+    fi
     if [ -n "${OLD_VIRTUAL_PYTHONHOME:-}" ] ; then
         PYTHONHOME="${OLD_VIRTUAL_PYTHONHOME:-}"
         export PYTHONHOME
@@ -61,9 +66,9 @@ deactivate_cosim nondestructive
 VIRTUAL_ENV="${HOME}/cosim2_env"
 export VIRTUAL_ENV
 
-OLD_PYTHONPATH="$PYTHONPATH"
-PYTHONPATH="$VIRTUAL_ENV/python"
-export PYTHONPATH
+#OLD_PYTHONPATH="$PYTHONPATH"
+#PYTHONPATH="$VIRTUAL_ENV/python"
+#export PYTHONPATH
 
 # GridLAB-D required environment variables:
 OLD_CXXFLAGS="$CXXFLAGS"
@@ -71,7 +76,7 @@ CXXFLAGS=-I${GLD_INSTALL_PATH}/share/gridlabd
 export CXXFLAGS
 
 OLD_GLPATH="$GLPATH"
-GLPATH=${VIRTUAL_ENV}/lib/gridlabd:${VIRTUAL_ENV}/share/gridlabd 
+GLPATH=${VIRTUAL_ENV}/lib/gridlabd:${VIRTUAL_ENV}/share/gridlabd
 export GLPATH
 
 OLD_LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
@@ -85,6 +90,12 @@ export PATH
 # unset PYTHONHOME if set
 # this will fail if PYTHONHOME is set to the empty string (which is bad anyway)
 # could use `if (set -u; : $PYTHONHOME) ;` in bash
+
+
+OLD_PYHELICS_INSTALL="$PYHELICS_INSTALL"
+PYHELICS_INSTALL=~/cosim2_env
+export PYHELICS_INSTALL
+
 if [ -n "${PYTHONHOME:-}" ] ; then
     OLD_VIRTUAL_PYTHONHOME="${PYTHONHOME:-}"
     unset PYTHONHOME
@@ -92,7 +103,7 @@ fi
 
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then
     OLD_VIRTUAL_PS1="${PS1:-}"
-    PS1="[cosim2_env] ${PS1:-}"
+    PS1="⚡2.8 ${PS1:-}"
     export PS1
 fi
 
